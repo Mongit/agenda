@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/fullcalendar.css' />
+    <script src="fullcalendar/lib/jquery.min.js"></script>  
+    <script src="fullcalendar/lib/moment.min.js"></script>  
+    <script src="fullcalendar/src/fullcalendar.js"></script>
+      
+      <script>
+          $(document).ready(function() {
+              //Initialize the calendar
+            
+              $('#calendar').fullCalendar({//options and callbacks here
+//Options affects the look or behavior of the calendar
+                  weekends: false,//will hide Saturdays and sundays
+//Callbacks are functions that get called whenever something special happends.
+                  dayClick: function() {
+                      alert('a day has been clicked!');
+                  }
+              })
+//Methods provide ways to manipulate the calendar from JavaScript code. 
+//A method operates on the jQuery object of a calendar that has already been initialized, using the fullCalendar command, but in a different way.
+//This will call the next method and will force to the calendar to move to the next month/week/day.
+              
+              //$('#calendar').fullCalendar('next');
+              
+          });
+      </script>
+  </head>
+  <body>
+      <div id="calendar"></div>
+  </body>
+</html>
