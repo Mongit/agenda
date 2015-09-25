@@ -18,14 +18,54 @@
 //Callbacks are functions that get called whenever something special happends.
                   dayClick: function() {
                       alert('a day has been clicked!');
-                  }
+                  },
+                  eventClick: function(calEvent, jsEvent, view) {
+                        var event = 'Event: ' + calEvent.title + '\n' + 'Start time: ' + calEvent.start.format("MMM Do YY") + '\n' + 'End time: ' + calEvent.end.format("MMM Do YY");
+                        
+                        alert(event);
+// jQuery.facebox(event); 
+// this would open the HTML in a facebox popup window
+                        if(calEvent.url) {
+                            window.open(calEvent.url);
+                            return false;
+                        }
+                        
+                    }
               })
 //Methods provide ways to manipulate the calendar from JavaScript code. 
 //A method operates on the jQuery object of a calendar that has already been initialized, using the fullCalendar command, but in a different way.
 //This will call the next method and will force to the calendar to move to the next month/week/day.
               
               //$('#calendar').fullCalendar('next');
-              
+                var newEvent = {
+        //            id: 1,
+                    title: 'My test Event',
+                    start: '2015-09-25T12:30:00',
+                    end: '2015-09-25T14:30:00',
+                    allDay: false
+                    
+      //              location: 'My house',
+    //                description: 'Party',
+                    
+      //              editable: true
+                }; 
+                $('#calendar').fullCalendar('renderEvent', newEvent, true);
+              /*
+                $('#calendar').fullCalendar({
+                    eventClick: function(calEvent, jsEvent, view) {
+                        var event = 'Event: ' + calEvent.title + '\n' + 'Location: ' + calEvent.location + '\n' + 'Start time: ' + calEvent.end = '\n' + 'Description: ' + calEvent.description;
+                        
+                        alert(event);
+                        // jQuery.facebox(event); // this would open the HTML in a facebox popup window
+                        if(calEvent.url) {
+                            window.open(calEvent.url)l
+                            return false;
+                        }
+                        
+                    }
+                });
+              */
+               
           });
       </script>
   </head>
