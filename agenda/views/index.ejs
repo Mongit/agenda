@@ -4,10 +4,11 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/fullcalendar.css' />
+
     <script src="fullcalendar/lib/jquery.min.js"></script>  
     <script src="fullcalendar/lib/moment.min.js"></script>  
     <script src="fullcalendar/src/fullcalendar.js"></script>
-      
+
       <script>
           $(document).ready(function() {
               //Initialize the calendar
@@ -38,16 +39,16 @@
               
               //$('#calendar').fullCalendar('next');
                 var newEvent = {
-        //            id: 1,
+                    id: 1,
                     title: 'My test Event',
                     start: '2015-09-25T12:30:00',
                     end: '2015-09-25T14:30:00',
-                    allDay: false
+                    allDay: false,
                     
-      //              location: 'My house',
-    //                description: 'Party',
+                    location: 'My house',
+                    description: 'Party',
                     
-      //              editable: true
+                    editable: true//permite el movimiento del evento
                 }; 
                 $('#calendar').fullCalendar('renderEvent', newEvent, true);
               /*
@@ -65,8 +66,9 @@
                     }
                 });
               */
-               
+
           });
+          
       </script>
   </head>
   <body>
