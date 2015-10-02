@@ -8,68 +8,57 @@
     <script src="fullcalendar/lib/jquery.min.js"></script>  
     <script src="fullcalendar/lib/moment.min.js"></script>  
     <script src="fullcalendar/src/fullcalendar.js"></script>
+    <script type="text/javascript" src="fullcalendar/src/gcal.js"></script> 
+      
+    <script>
+        $(document).ready(function() {
+            $('#calendar').fullCalendar({
+                //options and callbacks here
+                //Options:
+                //affects the look or behavior of the calendar
+                weekends: false,//will hide Saturdays and sundays
+                dayClick: function() {//Callbacks: 
+                //functions that get called whenever something special happends.
+                    alert('a day has been clicked!');
+                },
+                eventClick: function(calEvent, jsEvent, view) {
+                    var event = 'Event: ' + calEvent.title + '\n' 
+                        + 'Start time: ' + calEvent.start + '\n' 
+                        + 'End time: ' + calEvent.end;
 
-      <script>
-          $(document).ready(function() {
-              //Initialize the calendar
-            
-              $('#calendar').fullCalendar({//options and callbacks here
-//Options affects the look or behavior of the calendar
-                  weekends: false,//will hide Saturdays and sundays
-//Callbacks are functions that get called whenever something special happends.
-                  dayClick: function() {
-                      alert('a day has been clicked!');
-                  },
-                  eventClick: function(calEvent, jsEvent, view) {
-                        var event = 'Event: ' + calEvent.title + '\n' + 'Start time: ' + calEvent.start.format("MMM Do YY") + '\n' + 'End time: ' + calEvent.end.format("MMM Do YY");
-                        
-                        alert(event);
-// jQuery.facebox(event); 
-// this would open the HTML in a facebox popup window
-                        if(calEvent.url) {
-                            window.open(calEvent.url);
-                            return false;
-                        }
-                        
+                    alert(event);
+                    // jQuery.facebox(event); 
+                    // this would open the HTML in a facebox popup window
+                    if(calEvent.url) {
+                        window.open(calEvent.url);
+                        return false;
                     }
-              })
+
+                }
+            })
+
 //Methods provide ways to manipulate the calendar from JavaScript code. 
 //A method operates on the jQuery object of a calendar that has already been initialized, using the fullCalendar command, but in a different way.
 //This will call the next method and will force to the calendar to move to the next month/week/day.
-              
-              //$('#calendar').fullCalendar('next');
-                var newEvent = {
-                    id: 1,
-                    title: 'My test Event',
-                    start: '2015-09-25T12:30:00',
-                    end: '2015-09-25T14:30:00',
-                    allDay: false,
-                    
-                    location: 'My house',
-                    description: 'Party',
-                    
-                    editable: true//permite el movimiento del evento
-                }; 
-                $('#calendar').fullCalendar('renderEvent', newEvent, true);
-              /*
-                $('#calendar').fullCalendar({
-                    eventClick: function(calEvent, jsEvent, view) {
-                        var event = 'Event: ' + calEvent.title + '\n' + 'Location: ' + calEvent.location + '\n' + 'Start time: ' + calEvent.end = '\n' + 'Description: ' + calEvent.description;
-                        
-                        alert(event);
-                        // jQuery.facebox(event); // this would open the HTML in a facebox popup window
-                        if(calEvent.url) {
-                            window.open(calEvent.url)l
-                            return false;
-                        }
-                        
-                    }
-                });
-              */
+            var newEvent = {
+                id: 1,
+                title: 'My test Event',
+                start: moment("2015-10-02T01:32:21.196Z"),
+                end: moment("2015-10-03T01:32:21.196Z"),
+                //end: moment("2015 10 03", "YYYY MM DD"),
+                allDay: false,
 
-          });
+                location: 'The house',
+                description: 'Party',
+
+                editable: true//permite el movimiento del evento
+            }; 
+            $('#calendar').fullCalendar('renderEvent', newEvent, true);
+
+
+        });
           
-      </script>
+    </script>
   </head>
   <body>
       <div id="calendar"></div>
