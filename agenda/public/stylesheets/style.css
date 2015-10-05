@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+.gcalevent,
+.gcalevent div,
+.gcalevent span {
+    background-color: green; /* background color */
+    border-color: green;     /* border color */
+    color: yellow;           /* text color */
+}
