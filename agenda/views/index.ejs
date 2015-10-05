@@ -23,8 +23,8 @@
                 },
                 eventClick: function(calEvent, jsEvent, view) {
                     var event = 'Event: ' + calEvent.title + '\n' 
-                        + 'Start time: ' + calEvent.start + '\n' 
-                        + 'End time: ' + calEvent.end;
+                        + 'Start time: ' + calEvent.start.format('llll') + '\n' 
+                        + 'End time: ' + calEvent.end.format('llll');
 
                     alert(event);
                     // jQuery.facebox(event); 
@@ -76,6 +76,7 @@
     </script>
       
       <script>
+          //.fullCalendar( 'removeEvents' [, idOrFilter ] )//remove
           $(document).ready(function() {
               var source = [
                   {
@@ -99,28 +100,7 @@
               $('#calendar').fullCalendar( 'addEventSource', source );
           });
       </script>
-      <!-- Initialized the calendar with JS, this is the most minimal example. Settings of GCAL-->
-      <!-- To specify some Event Source options, include them in the events object -->
-      <script type="text/x-javascript">
-          $(document).ready(function() {
-              $('#calendar').fullCalendar({
-                  googleCalendarApiKey: 'AIzaSyDWgP-4n9HLVysfUXHKKAllt04iyeadWqk',
-                  //events: 'monserrat.jimenez2@gmail.com',
-                  events: {
-                    googleCalendarId: 'monserrat.jimenez2@gmail.com',
-                    className: 'gcal-event'
-                  },
-                  eventClick: function(event) {
-                      //opens events in a popup window
-                      window.open(event.url, 'gcalevent', 'with=700, height=600');
-                      return false;
-                  },
-                  loading: function(bool) {
-                      $('#loading').toggle(bool);
-                  }
-              });
-          });
-      </script>
+      
   </head>
   <body>
       <div id="calendar"></div>
