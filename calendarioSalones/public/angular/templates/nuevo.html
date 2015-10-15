@@ -1,0 +1,114 @@
+<div class="container">
+    <h1>Reservacion/Nuevo Evento</h1>
+    
+    <div ng-controller="NuevoController as ctrl">
+        <form ng-submit="ctrl.save()" name='nuevoForm' novalidate>
+            <div class="form-group">
+                Titulo: <input type="text"
+                       placeholder='Titulo'
+                       name='titulo'
+                       ng-model="ctrl.titulo" 
+                       ng-pattern="/[a-zA-Z]/"
+                       required
+                       ng-class='{error: nuevoForm.titulo.$invalid && !nuevoForm.$pristine}'
+                />
+            </div>
+            
+            <div class="form-group">
+                Usuario 
+                Nombre: <input type="text"
+                       placeholder='Nombre'
+                       name='nombre'
+                       ng-model="ctrl.usuario.nombre"
+                       ng-pattern="/[a-zA-Z]/"
+                       required
+                       ng-class='{error: nuevoForm.usuario.nombre.$invalid &&
+                                 !nuevoForm.$pristine}'/>
+                Num de Control: <input type="number" min="11000000" 
+                       max="15999999"
+                       class='form-control'
+                       name='numControl'
+                       ng-model="ctrl.usuario.numControl"
+                       required
+                       ng-class='{error: nuevoForm.usuario.numControl.$invalid &&
+                                 !nuevoForm.$pristine}'/>
+
+            </div>
+            
+            <div class="form-group">
+                Salon
+                
+                Edificio: <input type="text" placeholder='Edificio'                               name='edificio' ng-model="ctrl.salon.edificio" required 
+                    ng-class='{error: nuevoForm.salon.edificio.$invalid &&
+                    !nuevoForm.$pristine}' />
+                Num de salon: <input type="Number" name='numSalon' 
+                    ng-model="ctrl.salon.numSalon" required 
+                    ng-class='{error: nuevoForm.salon.numSalon.$invalid &&
+                    !nuevoForm.$pristine}' />
+
+            </div>
+            
+            <div class="form-group">
+                Horario: 
+                <input name="todoElDia"
+                       type="radio"
+                       value="Todo el dia"         />
+                <select name="hrEmpieza">
+                    <optgroup label="Hora de Inicio">
+                <!-- <input type="time min="7:00" max=20:00 step=36000 -->        <option>7:00 - 8:00</option>
+                        <option>8:00 - 9:00</option>
+                        <option>9:00 - 10:00</option>
+                        <option>10:00 - 11:00</option>
+                        <option>11:00 - 12:00</option>
+                        <option>12:00 - 13:00</option>
+                        <option>13:00 - 14:00</option>
+                        <option>14:00 - 15:00</option>
+                        <option>15:00 - 16:00</option>
+                        <option>16:00 - 17:00</option>
+                        <option>17:00 - 18:00</option>
+                        <option>18:00 - 19:00</option>
+                        <option>19:00 - 20:00</option>
+                    </optgroup>
+                </select>
+                <!-- <input type="time min="7:00" max=20:00 step=36000 -->
+                <select name="hrTermina">
+                    <optgroup label="Hora de Finalizar">
+                        <option>7:00 - 8:00</option>
+                        <option>8:00 - 9:00</option>
+                        <option>9:00 - 10:00</option>
+                        <option>10:00 - 11:00</option>
+                        <option>11:00 - 12:00</option>
+                        <option>12:00 - 13:00</option>
+                        <option>13:00 - 14:00</option>
+                        <option>14:00 - 15:00</option>
+                        <option>15:00 - 16:00</option>
+                        <option>16:00 - 17:00</option>
+                        <option>17:00 - 18:00</option>
+                        <option>18:00 - 19:00</option>
+                        <option>19:00 - 20:00</option>
+                    </optgroup>
+                </select>
+
+            </div>
+            
+            <div class="form-group">
+                Repetir: <input type="date" step="1" name='repetir' 
+                    ng-model="ctrl.repetir" required 
+                    ng-class='{error: nuevoForm.repetir.$invalid &&
+                    !nuevoForm.$pristine}' />
+            </div>
+            
+            
+            <div>nuevoForm is {{nuevoForm.$valid}}</div>
+            
+            <input type="submit" 
+                   class='btn btn-success pull-right'
+                   id="submit" 
+                   value="guardar" 
+                   ng-disabled='!nuevoForm.$valid' 
+            />
+            
+        </form>
+        <br />
+    </div>
+</div>

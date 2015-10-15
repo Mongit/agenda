@@ -1,0 +1,16 @@
+<div ng-controller="IndexController as ctrl">
+    <ul ng-repeat="evento in ctrl.eventos">
+        <li>
+            {{evento.title}}, {{evento.usuario.nombre}},{{evento.usuario.numControl}}, {{evento.salon.edificio}}, {{evento.salon.numSalon}},{{evento.horario.todoElDia}},{{evento.horario.hrEmpieza}}, {{evento.horario.hrTermina}}, {{evento.repetir}}
+        </li>
+    </ul>
+    
+    
+    <div id='calendar'></div>
+    
+    <script data-main="fullcalendar/src/application.js" src="fullcalendar/lib/require.js"></script>
+    <script src="fullcalendar/src/application.js"></script>
+</div>
+
+<a ng-href="#/nuevo">Nuevo</a>
+

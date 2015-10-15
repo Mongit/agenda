@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='app'>
   <head>
     <title>Calendario de salones</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+    <link rel='stylesheet' href='/stylesheets/fullcalendar.css' />
+      
+      <!-- FULLCALENDAR -->
+      <script src="fullcalendar/lib/jquery.min.js"></script>
+      <script src="fullcalendar/lib/moment.min.js"></script>
+      <script src="fullcalendar/lib/fullcalendar.js"></script>
+       
+    </head>
   <body>
+      
     <h1>Calendario de salones</h1>
+    <div ng-view></div>
+      
+    <!-- ANGULAR -->
+      <script src="/angular/lib/angular.min.js"></script>
+    <script src="/angular/lib/angular-route.min.js"></script>
+    <script src="/angular/src/app.js"></script>  
+    <script src="/angular/src/indexController.js"></script>
+    <script src="/angular/src/nuevoController.js"></script>
+    <script src="/angular/src/eventosApi.js"></script>  
   </body>
 </html>
