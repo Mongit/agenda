@@ -1,4 +1,4 @@
-var event = require(['./calendar_events'])();
+//var event = require(['./calendar_events'])();
 
 $(document).ready(function() {
     var arr = [];

@@ -1,5 +1,5 @@
 (function() {
-    var app = angular.module('app');
+    var app = angular.module('app', []);
     
     app.factory('apiFactory', ['$http', function($http) {
         var Api = function(url) {
@@ -34,9 +34,9 @@
                 }).success(success).error(api.error);
             };
             
-            };
+        };
         return function(url) {
-                return new Api(url);
+            return new Api(url);
             
         };
     }]);

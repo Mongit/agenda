@@ -15,6 +15,7 @@
     "moment": "^2.10.6",
     "mongoose": "^4.1.10",
     "morgan": "~1.5.3",
+    "requirejs": "^2.1.20",
     "serve-favicon": "~2.2.1"
   }
 }

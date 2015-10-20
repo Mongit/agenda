@@ -1,27 +1,68 @@
 <!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title>Calendario de salones</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+      
+      <!-- FULLCALENDAR-->
+      <link rel='stylesheet' href='/stylesheets/fullcalendar.css' />
+      <script src='fullcalendar/lib/jquery.min.js'></script>
+      <script src='fullcalendar/lib/moment.min.js'></script>
+      <script src='fullcalendar/lib/fullcalendar.js'></script>
+      
+      <!-- ANGULAR-->
+      <script src="angular/lib/angular.js"></script>
+      <script src="angular/lib/angular-route.js"></script>
+      
+      
+      
+      
+    </head>
+  <body>
+    <h1>Calendario de salones</h1>
+      
+    <div ng-view>     
+    </div>
+      
+      <script src="angular/src/app.js"></script>
+  </body>
+</html>
+
+
+<!--
+<!DOCTYPE html>
 <html ng-app='app'>
   <head>
     <title>Calendario de salones</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/fullcalendar.css' />
-      
-      <!-- FULLCALENDAR -->
+     
+++++++      <!-- FULLCALENDAR 
       <script src="fullcalendar/lib/jquery.min.js"></script>
       <script src="fullcalendar/lib/moment.min.js"></script>
       <script src="fullcalendar/lib/fullcalendar.js"></script>
-       
+       <!-- VENTANA EMERGENTE
+      <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+ 
+<script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+ ++++++
     </head>
   <body>
       
     <h1>Calendario de salones</h1>
-    <div ng-view></div>
+    <div ng-view>
+    </div>
       
-    <!-- ANGULAR -->
-      <script src="/angular/lib/angular.min.js"></script>
++++++    <!-- ANGULAR 
+    <script src="/angular/lib/angular.min.js"></script>
     <script src="/angular/lib/angular-route.min.js"></script>
     <script src="/angular/src/app.js"></script>  
     <script src="/angular/src/indexController.js"></script>
-    <script src="/angular/src/nuevoController.js"></script>
+  <!--  <script src="/angular/src/nuevoController.js"></script>
     <script src="/angular/src/eventosApi.js"></script>  
++++++++++
   </body>
 </html>
+-->

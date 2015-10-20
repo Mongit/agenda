@@ -14,7 +14,10 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
     
-    var reservacion = reservaciones({
+    cosole.log('entro al post');
+    console.dir(req);
+    cosole.log('entro al post2');
+/*    var reservacion = reservaciones({
         titulo: 'ISC 5B',
         usuario: {
             nombre: 'Juan',
@@ -35,7 +38,7 @@ router.post('/', function(req, res, next) {
         if(err) return next(err);
         res.json(data);
     });
-    
+  */  
 });
 
 

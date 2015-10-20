@@ -1,5 +1,5 @@
 (function () {
-    var app = angular.module('app');
+    var app = angular.module('app', []);
         
 
     app.controller('IndexController', ['$http', '$location', 'eventosApi', function($http, $location, eventosApi){

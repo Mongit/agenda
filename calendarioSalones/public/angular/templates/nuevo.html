@@ -50,12 +50,13 @@
             
             <div class="form-group">
                 Horario: 
-                <input name="todoElDia"
-                       type="radio"
+                Todo el dia<input name="todoElDia"
+                       type="checkBox"
                        value="Todo el dia"         />
-                <select name="hrEmpieza">
+                <br />
+                Hora de inicio: <select name="hrEmpieza">
                     <optgroup label="Hora de Inicio">
-                <!-- <input type="time min="7:00" max=20:00 step=36000 -->        <option>7:00 - 8:00</option>
+                <!-- <input type="time" min="7:00" max=20:00 step=36000 -->        <option>7:00 - 8:00</option>
                         <option>8:00 - 9:00</option>
                         <option>9:00 - 10:00</option>
                         <option>10:00 - 11:00</option>
@@ -71,7 +72,7 @@
                     </optgroup>
                 </select>
                 <!-- <input type="time min="7:00" max=20:00 step=36000 -->
-                <select name="hrTermina">
+                Hora de termino: <select name="hrTermina">
                     <optgroup label="Hora de Finalizar">
                         <option>7:00 - 8:00</option>
                         <option>8:00 - 9:00</option>
@@ -91,13 +92,38 @@
 
             </div>
             
-            <div class="form-group">
+        <!--    <div class="form-group">
                 Repetir: <input type="date" step="1" name='repetir' 
-                    ng-model="ctrl.repetir" required 
+                    ng-model="ctrl.repetir" 
                     ng-class='{error: nuevoForm.repetir.$invalid &&
                     !nuevoForm.$pristine}' />
             </div>
-            
+           --> 
+            <!-- VENTANA EMERGENTE repetir-->
+            <div class="form-group">
+                <script type="text/javascript">
+                    $(function() { 
+                        $("#dialog1").dialog({
+                            autoOpen: false
+                        });
+                        $("#opener").click(function() {
+                            $("#dialog1").dialog('open');
+                        });
+                    });
+                </script>
+                
+                <button id="opener">Escoge la fecha</button>
+                <div id="dialog1" title="Dialog Title" hidden="hidden"> hola
+                 <!--   <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('#calendarPopUp').fullCalendar({
+                                
+                            })
+                        });
+                    </script>    
+                    <div id="calendarPopUp"></div> -->
+                </div>
+            </div>
             
             <div>nuevoForm is {{nuevoForm.$valid}}</div>
             
