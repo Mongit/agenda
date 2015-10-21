@@ -25,8 +25,18 @@
     <script src="bootbox.min.js"></script>
     <script>
         $(document).on("click", ".alert", function(e) {
-            bootbox.alert("Hello world!", function() {
-                console.log("Alert Callback");
+           /* bootbox.prompt("Hello Mon!", function(x) {
+                console.log(x);
+            });
+            */
+            bootbox.confirm("<form id='infos' action=''>\
+First name:<input type='text' name='first_name' /> <br />\
+Last name: <input type='text' name='last_name' />\
+        </form>", function(result) {
+                console.dir(this);
+                if(result)
+                    console.log('Aqui puede hacer el ajax', result);
+                    //$('#dialog').submit();
             });
         });
     </script>
