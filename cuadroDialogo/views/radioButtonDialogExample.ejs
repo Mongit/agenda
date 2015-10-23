@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+  <title></title>
+  <link type="text/css" href="js/themes/base/ui.all.css" rel="stylesheet" />
+  <script src="javascripts/jquery-1.11.3.js"></script>
+  <script src="javascripts/jquery-ui-1.11.4/jquery-ui.js"></script>
+  <!--<script type="text/javascript" src="js/ui/ui.core.js"></script>
+  <script type="text/javascript" src="js/ui/ui.dialog.js"></script>
+  <script type="text/javascript" src="js/ui/ui.resizable.js"></script>
+  <script type="text/javascript" src="js/ui/ui.draggable.js"></script>
+  <link type="text/css" href="js/demos.css" rel="stylesheet" />-->
+  <link type="text/css" href="stylesheets/eje2.css" rel="stylesheet" />
+  <script type="text/javascript">
+    $(function() {
+        var cancel = function() {
+            $("#myDialog").dialog("close");
+        }
+        var getResponse = function(){
+          var answer;
+          $("input").each(function(){
+            (this.checked == true) ? answer = $(this).val() : null;
+          });
+          $("<p>").text(answer).insertAfter($("#poll"));
+          $("#myDialog").dialog("close");
+        }
+        var dialogOpts = {
+          modal: true,
+          buttons: {
+            "Done": getResponse,
+            "Cancel": cancel
+          },
+          autoOpen: false
+        };
+        $("#myDialog").dialog(dialogOpts);
+        $("#poll").click(function() {
+          $("#myDialog").dialog("open");
+        });  
+    });
+  </script>
+</head>
+<body>
+    <button id="poll">Poll</button>
+    <div id="myDialog" class="flora" title="This is the title">
+      <p>Question?</p>
+      <label for="yes">Yes!</label><input type="radio" id="yes" value="yes" name="question"><br>
+      <label for="no">No!</label><input type="radio" id="no" value="no" name="question">
+    </div>
+</body>
+</html>

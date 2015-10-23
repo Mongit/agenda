@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <script src="javascripts/jquery-1.11.3.js"></script>
+  <script src="javascripts/jquery-ui-1.11.4/jquery-ui.js"></script>
+  <link type="text/css" href="stylesheets/eje2.css" rel="stylesheet" />
+  <script type="text/javascript">
+    $(function() {
+        var cancel = function() {
+            $("#myDialog").dialog("close");
+        }
+        var getResponse = function(){
+          var answer;
+          $("input").each(function(){
+              console.log(this);          
+            (this.checked == true || this !== "") ? answer = $(this).val() : null;
+            $("<p>").text(answer).insertAfter($("#poll"));
+          });
+          //$("input").each(function(){
+            //(this !== "") ? answer = $(this).val() : null;
+          //});
+          
+          $("#myDialog").dialog("close");
+        }
+        var dialogOpts = {
+          modal: true,
+          buttons: {
+            "Done": getResponse,
+            "Cancel": cancel
+          },
+          autoOpen: false
+        };
+        $("#myDialog").dialog(dialogOpts);
+        $("#poll").click(function() {
+          $("#myDialog").dialog("open");
+        });  
+    });
+  </script>
+</head>
+<body>
+    <button id="poll">Poll</button>
+    <div id="myDialog" class="flora" title="This is the title">
+        <form action="" id="add-event-form" name="add-event-form">
+            <p>
+                <label for="title">Event Name</label>
+                <input type="text" name="title" id="title" />
+            </p>
+            <p>
+                <label for="add-date">Date</label>
+                <input type="text" name="event-date" id="event-date" tabindex="-1" />
+            </p>
+            <p>
+                <label for="add-start-time">Start time</label>
+                <input type="text" name="start-time" id="start-time" />
+            </p>
+            <p>
+                <label for="add-end-time">End time</label>
+                <input type="text" name="end-time" id="end-time" />
+            </p>
+            <p>
+                <label for="repeats">Repeat</label>
+                <input type="checkbox" name="repeats" id="repeats" value="1" />
+                <div id="repeat-options">
+                    Repeat every: day <input type="radio" value="1" name="repeat-frec" align="bottom" />
+                    week <input type="radio" value="7" name="repeat-frec" align="bottom" />
+                    two weeks <input type="radio" value="14" name="repeat-frec" align="bottom" />
+
+                </div>
+            </p>
+        
+        </form>
+    </div>
+</body>
+</html>
