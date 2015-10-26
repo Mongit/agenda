@@ -1,140 +1,30 @@
-<div class="container">
-    <h1>Reservacion/Nuevo Evento</h1>
-    
-    <div ng-controller="NuevoController as ctrl">
-        <form ng-submit="ctrl.save()" name='nuevoForm' novalidate>
-            <div class="form-group">
-                Titulo: <input type="text"
-                       placeholder='Titulo'
-                       name='titulo'
-                       ng-model="ctrl.titulo" 
-                       ng-pattern="/[a-zA-Z]/"
-                       required
-                       ng-class='{error: nuevoForm.titulo.$invalid && !nuevoForm.$pristine}'
-                />
-            </div>
-            
-            <div class="form-group">
-                Usuario 
-                Nombre: <input type="text"
-                       placeholder='Nombre'
-                       name='nombre'
-                       ng-model="ctrl.usuario.nombre"
-                       ng-pattern="/[a-zA-Z]/"
-                       required
-                       ng-class='{error: nuevoForm.usuario.nombre.$invalid &&
-                                 !nuevoForm.$pristine}'/>
-                Num de Control: <input type="number" min="11000000" 
-                       max="15999999"
-                       class='form-control'
-                       name='numControl'
-                       ng-model="ctrl.usuario.numControl"
-                       required
-                       ng-class='{error: nuevoForm.usuario.numControl.$invalid &&
-                                 !nuevoForm.$pristine}'/>
+<!-- Open this div as dialog with the event select callback-->
 
-            </div>
+<div id="add-event" title="Add New Event">
+    <form action="" id="add-event-form" name="add-event-form">
+        <label for="title">Event Name</label>
+        <input type="text" name="title" id="title" />
+        <p>
+            <label for="add-date">Date</label>
+            <input type="text" name="event-date" id="event-date" tabindex="-1" />
+        </p>
+        <p>
+            <label for="add-start-time">Start time</label>
+            <input type="text" name="start-time" id="start-time" />
+        </p>
+        <p>
+            <label for="add-end-time">End time</label>
+            <input type="text" name="end-time" id="end-time" />
+        </p>
+        <p>
+            <label for="repeats">Repeat</label>
+            <input type="checkbox" name="repeats" id="repeats" value="1" />
+        <div id="repeat-options">
+            Repeat every: day <input type="radio" value="1" name="repeat-frec" align="bottom" />
+            week <input type="radio" value="7" name="repeat-frec" align="bottom" />
+            two weeks <input type="radio" value="14" name="repeat-frec" align="bottom" />
             
-            <div class="form-group">
-                Salon
-                
-                Edificio: <input type="text" placeholder='Edificio'                               name='edificio' ng-model="ctrl.salon.edificio" required 
-                    ng-class='{error: nuevoForm.salon.edificio.$invalid &&
-                    !nuevoForm.$pristine}' />
-                Num de salon: <input type="Number" name='numSalon' 
-                    ng-model="ctrl.salon.numSalon" required 
-                    ng-class='{error: nuevoForm.salon.numSalon.$invalid &&
-                    !nuevoForm.$pristine}' />
-
-            </div>
-            
-            <div class="form-group">
-                Horario: 
-                Todo el dia<input name="todoElDia"
-                       type="checkBox"
-                       value="Todo el dia"         />
-                <br />
-                Hora de inicio: <select name="hrEmpieza">
-                    <optgroup label="Hora de Inicio">
-                <!-- <input type="time" min="7:00" max=20:00 step=36000 -->        <option>7:00 - 8:00</option>
-                        <option>8:00 - 9:00</option>
-                        <option>9:00 - 10:00</option>
-                        <option>10:00 - 11:00</option>
-                        <option>11:00 - 12:00</option>
-                        <option>12:00 - 13:00</option>
-                        <option>13:00 - 14:00</option>
-                        <option>14:00 - 15:00</option>
-                        <option>15:00 - 16:00</option>
-                        <option>16:00 - 17:00</option>
-                        <option>17:00 - 18:00</option>
-                        <option>18:00 - 19:00</option>
-                        <option>19:00 - 20:00</option>
-                    </optgroup>
-                </select>
-                <!-- <input type="time min="7:00" max=20:00 step=36000 -->
-                Hora de termino: <select name="hrTermina">
-                    <optgroup label="Hora de Finalizar">
-                        <option>7:00 - 8:00</option>
-                        <option>8:00 - 9:00</option>
-                        <option>9:00 - 10:00</option>
-                        <option>10:00 - 11:00</option>
-                        <option>11:00 - 12:00</option>
-                        <option>12:00 - 13:00</option>
-                        <option>13:00 - 14:00</option>
-                        <option>14:00 - 15:00</option>
-                        <option>15:00 - 16:00</option>
-                        <option>16:00 - 17:00</option>
-                        <option>17:00 - 18:00</option>
-                        <option>18:00 - 19:00</option>
-                        <option>19:00 - 20:00</option>
-                    </optgroup>
-                </select>
-
-            </div>
-            
-        <!--    <div class="form-group">
-                Repetir: <input type="date" step="1" name='repetir' 
-                    ng-model="ctrl.repetir" 
-                    ng-class='{error: nuevoForm.repetir.$invalid &&
-                    !nuevoForm.$pristine}' />
-            </div>
-           --> 
-            <!-- VENTANA EMERGENTE repetir-->
-            <div class="form-group">
-                <script type="text/javascript">
-                    $(function() { 
-                        $("#dialog1").dialog({
-                            autoOpen: false
-                        });
-                        $("#opener").click(function() {
-                            $("#dialog1").dialog('open');
-                        });
-                    });
-                </script>
-                
-                <button id="opener">Escoge la fecha</button>
-                <div id="dialog1" title="Dialog Title" hidden="hidden"> hola
-                 <!--   <script type="text/javascript">
-                        $(document).ready(function() {
-                            $('#calendarPopUp').fullCalendar({
-                                
-                            })
-                        });
-                    </script>    
-                    <div id="calendarPopUp"></div> -->
-                </div>
-            </div>
-            
-            <div>nuevoForm is {{nuevoForm.$valid}}</div>
-            
-            <input type="submit" 
-                   class='btn btn-success pull-right'
-                   id="submit" 
-                   value="guardar" 
-                   ng-disabled='!nuevoForm.$valid' 
-            />
-            
-        </form>
-        <br />
-    </div>
+        </div>
+        </p>
+    </form>
 </div>

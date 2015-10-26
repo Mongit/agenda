@@ -1,5 +1,14 @@
-//var events = 
-[
+var mongoose = require('mongoose');
+
+var Evento = mongoose.model('Evento');
+    
+Evento.find(function(err, eventos) {
+    if(err) return next(err);
+    res.json(eventos);
+});
+
+
+/*[
     {
         "allDay": "",
         "title": "Test event",
@@ -30,4 +39,4 @@
     }
 ];
 
-//module.exports = events;
+*/

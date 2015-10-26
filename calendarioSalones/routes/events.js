@@ -1,8 +1,69 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var reservaciones = require('./../schemas/reservacion');
+var eventos = require('./../schemas/evento');
 
+
+router.get('/gettingEvents', function(req, res, next) {
+    var Evento = mongoose.model('Evento');
+    
+    Evento.find(function(err, eventos) {
+        if(err) return next(err);
+        res.json(eventos);
+    });
+});
+
+
+router.post('/', function(req, res, next) {
+    var NuevoEvento = mongoose.model('Evento');
+    
+    if(req.body.repetir === 1) 
+        var repetir = true;
+    
+    NuevoEvento.create({
+        titulo: req.body.title,
+        start: req.body.start,
+        end: req.body.end,
+        repetir: repetir,
+    }, function(err, evento) {
+        if (err) return console.log("UPS! " +  err);
+        
+        console.log("Evento guardado exitosamente: " + evento);
+        
+        evento.usuario.push({
+            nombre: req.body.nombre,
+            numControl: req.body.numControl
+        });
+        
+        evento.salon.push({
+            edificio: req.body.edificio,
+            numSalon: req.body.numSalon
+        });
+        
+        //Si repetir es true, guardar las fechas en que se repetira
+        if(evento.repetir === true ) {
+            evento.repetirFrec.push({
+                timeStart: req.body.timeStart, 
+                timeEnd: req.body.timeEnd,
+                weekday: repetirFrec.weekday.push(req.body.weekday),
+                dateStart: req.body.dateStart,
+                dateEnd: req.body.dateEnd
+            });
+        }
+                
+        
+        evento.save(function(err, project) {
+            if(err) return console.log("Oh you poor thing " +  err);
+            
+            console.log("Subdocuments saved! " + evento);
+        });
+    
+    });
+    
+});
+
+
+/*
 router.get('/', function(req, res, next) {
     var Reservacion = mongoose.model('Reservacion');
     
@@ -38,7 +99,7 @@ router.post('/', function(req, res, next) {
         if(err) return next(err);
         res.json(data);
     });
-  */  
+  ********************************\  
 });
 
 
@@ -50,5 +111,5 @@ router.delete('/:id', function(req, res, next) {
         res.json(reservacion);
     });
 });
-
+*/
 module.exports = router;
