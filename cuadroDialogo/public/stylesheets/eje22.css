@@ -27,7 +27,7 @@ p {
 #button:hover {
     background:linear-gradient(to bottom,#49c0e8 5%,#59d0f8 100%)
 }
-#repeatChecbox {
+#repeatCheckbox {
     color: aliceblue
 }
 input[type=text] {

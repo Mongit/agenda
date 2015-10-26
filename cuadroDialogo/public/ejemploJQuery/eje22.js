@@ -38,5 +38,12 @@ $(document).ready(function() {
         $("#button").click(function() {
             $("#dialog").dialog("open");
         });
+        
+// binds the change-handler:
+        $("#repeats").change(function() {
+            // sets the 'disabled' property to false (if the 'this' is checked, true if not):
+            $(".radio-button").prop('disabled', !this.checked);
+            // triggers the change event (so the disabled property is set on page-load:
+        }).change();
     });
 });
