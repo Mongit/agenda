@@ -7,6 +7,9 @@ $(document).ready(function() {
             center: 'title',
             right: 'month, agendaWeek, agendaDay'
         },
+        dayClick: function() {
+            alert('a day has been clicked!');
+        },
         
         //Specify where to pull the events from.
         //events: "fullcalendar/src/calendar_events.js",
