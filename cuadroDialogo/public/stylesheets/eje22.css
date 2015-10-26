@@ -27,6 +27,9 @@ p {
 #button:hover {
     background:linear-gradient(to bottom,#49c0e8 5%,#59d0f8 100%)
 }
+#repeatChecbox {
+    color: aliceblue
+}
 input[type=text] {
     margin-top:5px;
     margin-bottom:20px;

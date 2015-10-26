@@ -2,7 +2,7 @@ $(document).ready(function() {
     $(function() {
         var cancel = function() {
             $("dialog").dialog("close");
-        }
+        };
         
         var getResponse = function() {
             var answer;
@@ -12,14 +12,26 @@ $(document).ready(function() {
             $("<p>").text(answer).insertAfter($("#button"));
             });
             $("#dialog").dialog("close");
-        }
+        };
         
         var dialogOpts = {
-            //modal: true,
+            /*modal: true,
             buttons: {
                 "Save": getResponse,
                 "Cancel": cancel
-            },
+            },*/
+            buttons: [
+                {
+                    text: "Save",
+                    click: getResponse
+                },
+                {                    
+                    text: "Cancel",
+                    click: function() {
+                        $( this ).dialog( "close" );
+                    }
+                }
+            ],
             autoOpen:false
         };
         $("#dialog").dialog(dialogOpts);
