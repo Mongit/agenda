@@ -8,7 +8,16 @@ $(document).ready(function() {
             right: 'month, agendaWeek, agendaDay'
         },
         dayClick: function() {
-            alert('a day has been clicked!');
+            $( ".selector" ).dialog({ 
+               buttons: [{ 
+                  text: "Ok", 
+                  click: function() { 
+                     $( this ).dialog( "close" ); 
+                  }
+               }]
+            });
+            //$("#dialog").dialog("open");
+          //  return false;
         },
         
         //Specify where to pull the events from.
@@ -24,8 +33,8 @@ $(document).ready(function() {
         }],
 */        
         editable: true,
-        defaultView: 'agendaWeek',
-        allDayDefault: false,
+        //defaultView: 'agendaWeek',
+        //allDayDefault: false,
         
         businessHours: true
     /*     minTime: '7:00am',

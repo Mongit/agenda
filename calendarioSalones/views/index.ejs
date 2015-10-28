@@ -3,10 +3,20 @@
     <head>
         <title>Calendario de salones</title>
         <link rel='stylesheet' href='/stylesheets/style.css' />
-      
+            
+        <!-- DIALOG BOX-->
+        <link rel="stylesheet" href="jquery-ui-1.11.4/jquery-ui.min.css">
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <!--<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+        <link rel="stylesheet" href="/stylesheets/eje22.css">-->
+        <script src='fullcalendar/lib/jquery.min.js'></script>
+        <script src="jquery-ui-1.11.4/jquery-ui.js"></script>
+        <script src="angular/src/dialog.js"></script>    
+        
         <!-- FULLCALENDAR-->
         <link rel='stylesheet' href='/stylesheets/fullcalendar.css' />
-        <script src='fullcalendar/lib/jquery.min.js'></script>
+        <!--<script src='fullcalendar/lib/jquery.min.js'></script>-->
         <script src='fullcalendar/lib/moment.min.js'></script>
         <script src='fullcalendar/lib/fullcalendar.js'></script>
         
@@ -21,6 +31,7 @@
         <div ng-view>     
         </div>
           
+        <% include partialDialog%>         <!-- ANOTHER WAY TO INCLUDE FILES WITH JQUERY http://stackoverflow.com/questions/8988855/include-another-html-file-in-a-html-file-->
         <script src="angular/src/app.js"></script>
     </body>
 </html>
